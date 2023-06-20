@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            id: 1,
+            pname: '小米',
+            price: '1999'
+        };
+        console.log(obj);
+        // 1.以前对象添加修改属性的方式
+        // obj.num = 1000;  //新添加属性
+        // obj.price = 999; //修改属性
+
+        // 2.ES5新增方法
+        // Object.defineProperty(obj,prop,descriptor);  (对象,修改项,修改后结果)
+        // descriptor的参数
+        // value:设置属性的值，默认是undefined
+        // writable:值是否可以被重写，true/false 默认false
+        // enumerable:目标属性是否可以被枚举 true/false 默认false
+        // configurable:目标属性是否可以被删除或再次修改特性 true/false 默认false
+
+        //定义新属性
+        Object.defineProperty(obj, 'num', {
+            value: 1000  //等价于 obj.num = 1000;
+            
+        });
+        console.log(obj);
+        console.log('--------------------------------');
+
+
+        // 修改属性
+        Object.defineProperty(obj, 'price', {
+            value: 99  //等价于 obj.price = 1000;
+        });
+        console.log(obj);
+        console.log('--------------------------------');
+
+        // writable:值是否可以被重写（就是不允许修改）
+        Object.defineProperty(obj, 'id', {
+            writable: false
+        });
+        obj.id = 3;
+        console.log(obj);  //输出id还是1，不允许被修改
+        console.log('--------------------------------');
+
+
+        //enumerable:目标属性是否可以被枚举（就是不允许遍历）
+        Object.defineProperty(obj, 'phone', {
+            value: 10086,
+            enumerable: false
+        });
+        console.log(obj);  //能输出phone
+        console.log(Object.keys(obj)); //无法遍历出phone  num也无法遍历出来是因为上面num也是通过defineProprtry方法添加的，其中enumerable默认值也是false，所以num也无法被遍历出来
+        console.log('--------------------------------');
+
+        //configurable:目标属性是否可以被删除或再次修改特性（就是不允许删除修改） 如果在上面已经申明为false，则下面就不能再修改为true
+        Object.defineProperty(obj, 'age', {
+            value:18,
+            configurable: false
+        }); 
+        delete obj.age; //age被定义configurable不能删除
+        delete obj.pname; //phone未定义configurable能删除
+
+        console.log(obj);  
+
+
+        console.log('--------------------------------');
+        //如果在上面已经申明为false，则下面就不能再修改为true
+        Object.defineProperty(obj, 'age', {
+            configurable: true
+        }); 
+        console.log(obj);  
+
+        
+
+
+    </script>
+</body>
+
+</html>

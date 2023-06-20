@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function () {
+            console.log('我会唱歌');
+        }
+        // Object.prototype.gender = 'nan3';
+        Star.prototype.gender = 'nv2';
+        let ldh = new Star('刘德华', 18);
+        ldh.gender = 'nan1';
+        console.log(ldh.gender);
+        // 查找原则：先去对象上看有没有相应的方法，如果有就访问，如果没有就访问原型链上一级的构造函数，如果还没有就访问再上一级，以此类推，直到Object  如果都有，就近原则
+    </script>
+</body>
+
+</html>

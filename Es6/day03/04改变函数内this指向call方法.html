@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 为了改变函数内this指向，JS提供了三种方法call()、apply()、bind().
+
+        // 1.call(obj,a,b)  obj是要传递的对象，ab是参数  
+        let o = {
+            name: 'xin'
+        };
+        function f1(a, b) {
+            console.log(this);
+            console.log(a + b);
+        };
+        f1.call();  //在这个普通函数内，this指向是winodw可以用call改变
+        f1.call(o, 1, 2);  //指向o
+        // call方法的作用第一个是调用函数，第二个是改变函数内this指向
+        // call的主要作用是实现继承
+        function Father(uname, age, gender) {
+            this.uname = uname;
+            this.age = age;
+            this.gender = gender;
+        }
+        function Son(uname, age, gender) {
+            Father.call(this, uname, age, gender);
+        }
+        let xin = new Son('xin', 18, 'n');
+        console.log(xin);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //浅拷贝只是拷贝一层，更深层次对象级别只拷贝引用(只拷贝对象的地址)
+        // 深拷贝拷贝多层，每一级别的数据都会拷贝
+        let obj = { 
+            id: 01, 
+            name: 'xin', 
+            mes:{
+                age:18
+            }
+        };
+        let o = {};
+        // for ( k in obj) {
+        //     //k 是属性名，obj[k]属性值
+        //     o[k] = obj[k]
+        // }
+        // console.log(o);
+        // console.log(obj);
+        // o.mes.age = 20;
+        // console.log(o);
+        // console.log(obj);
+        //浅拷贝只是把拷贝对象深层次的对象的地址拷贝过来了，是引用，他两展示的是同一个值，改变了后面的会导致被引用的对象内的深层次对象也被改变了
+        console.log('---------------------------');
+        //es6浅拷贝新语法  Object.assign(拷贝给的对象，被拷贝的对象);
+        Object.assign(o,obj);
+        console.log(o);
+        o.mes.age = 20;
+        console.log(o);
+        console.log(obj);  //浅拷贝
+
+    </script>
+</body>
+
+</html>

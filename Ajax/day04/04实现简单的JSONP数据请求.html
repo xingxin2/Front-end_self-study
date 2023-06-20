@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function success(data) {
+            console.log('从JSONP返回回来的数据：');
+            console.log(data);
+        }
+    </script>
+    <script src="https://ajax-base-api-t.itheima.net/api/jsonp?callback=success"></script>
+</body>
+
+</html>

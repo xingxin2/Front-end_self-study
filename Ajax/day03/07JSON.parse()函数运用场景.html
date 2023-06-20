@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET','https://ajax-base-api-t.itheima.net/api/getbooks');
+        xhr.send();
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+                console.log(typeof xhr.responseText);  //响应回来的是字符串类型的JSON数据不便于应用
+                //用JSON.parse()函数转换为JS对象类型方便应用
+
+                let obj = JSON.parse(xhr.responseText);
+                console.log(obj);
+                console.log(typeof obj);  //转换为JS对象类型
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function getSum(x,y) {
+        //     x = x || 0;
+        //     y = y || 0;
+        //     return x + y;
+        // }
+        // let sum = getSum(2,2);
+        // console.log(sum);
+
+        // 两个数求最大值
+        function getArrValue(arr) {
+            let max;
+            let min;
+            max =  min = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                // if (max < arr[i]) {
+                //     max = arr[i];
+                // }
+                // if (min > arr[i]) {
+                //     min = arr[i];
+                // }
+
+                // 三元表达式
+                max < arr[i] ? max = arr[i] : max;
+                min > arr[i] ? min = arr[i] : min;
+            }
+            return [max, min];
+        }
+        let value = getArrValue([11, 22, 33, 55, 88, 44, 99]);
+        document.write(`max=${value[0]},min=${value[1]}`);
+
+
+
+
+    </script>
+</body>
+
+</html>

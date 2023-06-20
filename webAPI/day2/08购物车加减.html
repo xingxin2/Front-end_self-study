@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 80px;
+        }
+        input[type=text] {
+            width: 50px;
+            height: 40px;
+            outline: none;
+            border: 1px solid #ccc;
+            text-align: center;
+            border-right: 0;
+        }
+        input[type=button] {
+            width: 24px;
+            height: 22px;
+            cursor: pointer;
+        }
+        input {
+            float: left;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="total" value="1" readonly>
+        <input type="button" value="+" id="add">
+        <input type="button" value="-" id="reduce" disabled>
+    </div>
+
+    <script>
+        // 1.获取元素
+        let total = document.querySelector('#total');
+        let add = document.querySelector('#add');
+        let reduce = document.querySelector('#reduce');
+        // 2.点击事件 加号
+        add.addEventListener('click',function(){
+            total.value++;
+            total.innerHTML = total.value;
+            reduce.disabled = false;
+        });
+        // 3.点击事件 减号
+        reduce.addEventListener('click',function(){
+            total.value--;
+            if(total.value <= 1){
+                reduce.disabled = true;
+            }
+            total.innerHTML = total.value;
+        });
+    </script>
+</body>
+</html>

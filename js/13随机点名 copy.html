@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 随机数
+        function getRandom(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        // 声明一个数组
+        let arr = ['关羽','张飞','赵云','马超','黄忠','刘备','孔明','姜维']
+        // 生成几个随机数
+        let random = getRandom(0,arr.length - 1);
+        // console.log(random);
+        document.write(arr[random]);
+    </script>
+</body>
+</html>

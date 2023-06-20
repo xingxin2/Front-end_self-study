@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        //调用不能在实例化对象之前
+        // let ldh = new Star('刘德华');
+        // ldh.sing();
+
+        class Star {
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+            }
+            sing() {
+
+                //类里的共有属性和方法一定要加this使用  例如
+                // console.log(uname); 会报错
+                console.log(this.uname);  //用方法要在前面加上this
+                console.log('Hi');
+            }
+        }
+        // 类的调用要在实例化之后才行
+        let ldh = new Star('刘德华');
+        ldh.sing(); //或者在constructor中用this.sing();
+        console.log("--------------------------------");
+
+        class Star1 {
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+                this.say();
+            }
+            say() {
+
+                //类里的共有属性和方法一定要加this使用  例如
+                // console.log(uname); 会报错
+                console.log(this.uname);  //用方法要在前面加上this
+                console.log('Hi');
+            }
+        }
+
+        // 类的调用要在实例化之后才行
+        let gfc = new Star1('gfc');
+        console.log("--------------------------------");
+
+        let that;
+        class Star2 {
+            constructor(uname, age) {
+
+                that = this;
+                // constructor 里的this指向的是创建的实例对象，就是创建的zxy
+                console.log(this);
+                this.uname = uname;
+                this.age = age;
+                this.btn = document.querySelector('button');
+                // 在调用方法前都得用this
+                this.btn.onclick = this.speak;  //speak后不要加小括号speak(),加了后会自动调用
+            }
+            speak() {
+                console.log("-----------------------------------");
+                // 这个speak方法里的this指向的是btn这个按钮，因为这个按钮调用了这个函数
+                console.log(this.uname);  //输出undefined
+                console.log(this);        //输出btn这个按钮
+                console.log(that.uname);  //that是全局变量，输出的是constructor里的this，所以输出zxy
+            }
+            dance(){
+                console.log(this);
+            }
+
+        }
+        let zxy = new Star2('zxy');
+        console.log(that === zxy);//返回true，说明这里的this就是指向创建的zxy
+        zxy.dance();//打印出来的也是zxy
+    </script>
+</body>
+
+</html>

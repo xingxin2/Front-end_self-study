@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  函数的定义方式
+        // 1. 自定义函数(命名函数) 
+        function fn1() { };
+        // 2. 函数表达式 (匿名函数)
+        let fn2 = function () { };
+        // 3. 利用 new Function('参数1','参数2', '函数体');
+        //Function() 括号里的必须都是字符串形式，都得拿引号引起来
+        let fn3 = new Function('a', 'b', 'console.log(a + b)');
+        fn3(1, 2);
+        // 4. 所有函数都是 Function 的实例(对象) 所以函数里应该有__proto__属性
+        console.dir(fn3);
+        console.log(fn3.__proto__);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //some 查找数组中是否有满足条件的元素，返回的是布尔值
+        let arr = [10, 11, 13, 4, 54, 9, 30];
+        let newArr = arr.some(function (value, index, array) {
+            // return value > 60;  //false
+            return value >= 30;  //数组中是否存在大于等于30的元素，如果有返回true，无则返回false
+        });
+        console.log(newArr);
+
+        //如果查找到第一个满足条件的元素时，则会停止，退出循环，返回true，不在查找下一个元素
+        let arr1 = ['black','purple','blue','purple'];
+        let newArr1 = arr1.some(function(value){
+            return value == 'purple';
+        });
+        console.log(newArr1);
+
+        // filter和some的区别
+        // 1.filter 是查找满足条件的元素，返回的是一个满足条件的数组，而且吧所有满足条件的数组都返回出来
+        // 2.some也是查找是否满足条件的元素，但是返回的是一个布尔值，如果查找到第一个满足条件的元素，就终止循环
+    </script>
+</body>
+
+</html>

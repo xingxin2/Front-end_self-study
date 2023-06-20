@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <script>
+        // GET请求携带参数的本质是  直接将参数以字符串的形式，追加到URL的地址后面，发送到服务器的
+        // 1
+        // $.get('https://ajax-base-api-t.itheima.net/api/getbooks',{ id : 1, bookname : '西游记'},function(res){
+        //     console.log(res);
+        // });
+        // 等价于2
+        // $.ajax({
+        //     method:'GET',
+        //     url:'https://ajax-base-api-t.itheima.net/api/getbooks',
+        //     data:{
+        //         id:1,
+        //         bookname:'西游记'
+        //     },
+        //     success: function(res){
+        //         console.log(res);
+        //     }
+        // })
+        // 等价于3
+        $.ajax({
+        method:'GET',
+        url:'https://ajax-base-api-t.itheima.net/api/getbooks?id=1&bookname=西游记',
+        success: function(res){
+            console.log(res);
+            }
+        })
+    </script>
+</body>
+</html>

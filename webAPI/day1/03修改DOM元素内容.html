@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+           width: 200px;
+           height: 200px;
+           background-color: rgb(232, 100, 232); 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        回忆
+    </div>
+
+
+    <script>
+        // 1.获取标签 
+        let box = document.querySelector('div');
+        // 2.修改标签（元素）内容 box是对象  innerText 属性 （对象.属性 = 值）
+        // box.innerText = '很美好的'; //innerText不识别标签
+        box.innerHTML = '<strong>很美好的(加粗的)</strong>'; //innerHTML能识别标签
+    </script>
+</body>
+</html>

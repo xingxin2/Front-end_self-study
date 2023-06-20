@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.利用 new Object()创建对象
+        let obj1 = new Object();
+        // 2.利用字面量创建对象
+        let obj2 = {};
+        // 3.利用构造函数创建对象
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+
+        }
+        Star.prototype.sing = function () {
+            console.log(this.uname + '唱歌');
+
+        }
+        let ldh = new Star('ldh', 18);
+        let zxy = new Star('zxy', 19);
+        ldh.sing();
+        zxy.sing();
+        //虽然sing这个方法是在prototype里定义的，ldh这个对象能使用的原因是因为ldh对象里有__proto__属性(左右各两个下划线)
+        console.log(ldh); 
+        // ldh这个对象里有个__proto__属性，指向的是构造函数里的原型prototype对象，所以能够使用
+        // 对象原型__proto__和原型对象prototype是等价的
+        console.log(ldh.__proto__ === Star.prototype);  //true
+        //方法的查找规则：首先看ldh这个对象上有没有sing这个方法，如果有就执行这个方法
+        // 如果没有，由于对象原型和原型对象是等价的，就去构造函数Star里的原型prototype上查找
+    </script>
+</body>
+
+</html>

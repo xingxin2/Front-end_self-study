@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.利用 new Object()创建对象
+        let obj1 = new Object();
+        // 2.利用字面量创建对象
+        let obj2 = {};
+        // 3.利用构造函数创建对象
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            // this.sing =function(){
+            //     console.log(this.uname+'唱歌');
+            // }
+        }
+        //原型对象：共享方法  
+        // 一般情况下，我们的公共属性放在构造函数里，而公共方法放在原型对象prototype身上
+        Star.prototype.sing = function () {
+            console.log(this.uname + '唱歌');
+
+        }
+        let ldh = new Star('ldh', 18);
+        let zxy = new Star('zxy', 19);
+        ldh.sing();
+        zxy.sing();
+
+        console.log(ldh.sing === zxy.sing);  //true
+    </script>
+</body>
+
+</html>

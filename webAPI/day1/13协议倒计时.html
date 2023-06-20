@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10">
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+        仔细阅读协议3s 
+
+    </textarea>
+    <br>
+    <button class="btn" disabled>我已阅读协议(3)</button>
+    <script>
+        // 1.获取元素
+        let btn = document.querySelector('button');
+
+        // 2.计算逻辑
+        // 2.1定义一个变量来计数
+        let i = 3;
+        // 2.2开启定时器
+        let timer = setInterval(function () {
+
+            i--;
+            btn.innerHTML = `我已阅读协议(${i})`;
+            if(i === 0){
+                // 关闭定时器
+                clearInterval(timer);
+                // 打开按钮 修改文字
+                btn.disabled = false;
+                btn.innerHTML = `我已阅读协议`;
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

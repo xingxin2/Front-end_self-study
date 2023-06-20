@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <ul>
+        <li>我是1</li>
+        <li class="two">我是2</li>
+        <li>我是3</li>
+        <li>我是4</li>
+        <li>我是5</li>
+    </ul>
+
+    <script>
+        let btn = document.querySelector('button');
+        let two = document.querySelector('.two');
+        //点击事件
+        btn.addEventListener('click',function(){
+            two.style.color = 'red';  //第二个变红
+            two.nextElementSibling.style.color = 'red';   //第二个 的 下一个变红 （nextElementSibling）下一个
+            two.previousElementSibling.style.color = 'red';   //第二个 的 上一个变红 （previousElementSibling）上一个
+        });
+    </script>
+</body>
+
+</html>

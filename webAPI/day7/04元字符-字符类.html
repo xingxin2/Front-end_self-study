@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(/abc/.test('abc')); //true
+        console.log(/abc/.test('ab')); //false 只能abc
+        console.log('----------------------------------');
+
+        //字符类 []  只要有其中一个都行
+        console.log(/[abc]/.test('abc')); //true
+        console.log(/[abc]/.test('a'));   //true
+        console.log(/[abc]/.test('b'));   //true
+        console.log(/[abc]/.test('c'));   //true
+        console.log(/[abc]/.test('bc'));  //true
+        console.log(/[abc]/.test(''));  //false
+        console.log(/[abc]/.test('cry'));    //true
+        console.log(/[abc]/.test('amy'));    //true
+        console.log(/[abc]/.test('abcde'));    //true
+        console.log('----------------------------------');
+        //字符类 [-] 连字符 表示一个范围 [0-9][a-z]
+        console.log(/^[abc]$/.test('abc'));   //false 精确匹配，只有其中一个才为真
+        console.log(/^[abc]$/.test('a'));   //true
+        console.log(/^[abc]$/.test('c'));   //true
+        console.log(/^[abc]$/.test('b'));   //true
+        console.log('----------------------------------');
+        //26个英文字母只选一个
+        console.log(/^[a-zA-Z]$/.test('b'));//true
+        console.log(/^[a-zA-Z]$/.test('D'));//true
+        console.log(/^[a-zA-Z]$/.test('DD'));//false //中括号里多选一
+        console.log(/^[a-zA-Z0-9]$/.test('5'));//true
+        console.log(/^[a-zA-Z0-9-_]$/.test('5'));//true只能出现大小写字母数字和下划线
+        console.log('----------------------------------');
+        // 腾讯QQ号
+        //  ^[1-9][0-9]{4,10}$  qq号从10000开始，首位不为0，{4-11}仅适用于[0-9],不适用于[1-9]
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = [];
+        // let arr = new Array[];  //完整版
+        // let obj = {};
+        // let obj = new Object{};  //完整版
+        // new 实例化 时间对象
+        // let date = new Date();  //()为空获得当前时间
+        // console.log(date);
+        // let date2 = new Date('1111-11-11 11:11:11');  //指定时间
+        // console.log(date2);
+
+        let date = new Date();
+        // 年月日
+        console.log(date.getFullYear());   //年，getFullYear()
+        console.log(date.getMonth() + 1);  //月，getMonth()取值范围0~11，所以要+1
+        console.log(date.getDate());       //日，
+        // 时分秒
+        console.log(date.getHours());      //时，
+        console.log(date.getMinutes());    //分，  0~59
+        console.log(date.getSeconds());    //秒，
+        // 星期
+        console.log(date.getDay());        //星期，
+
+    </script>
+</body>
+
+</html>

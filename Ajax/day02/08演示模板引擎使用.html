@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.导入模板引擎 -->
+    <!-- 在window全局 ,多一个函数叫做template('模板的id,星耀渲染的数据对象') -->
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+
+    <div id="containner"></div>
+
+
+    <!-- 3.定义模板 -->
+    <!-- 3.1模板的html结构，必须定义到script中 -->
+    <!-- script如果没有加type属性，就默认 <script type="text/javascript"> 意思是将script里的代码当作js去解析 -->
+    <script type="text/html" id="tpl-user">
+        <!-- {{}}表示占位符   -->
+    <h1>{{name}} ------- {{age}}</h1>
+
+    {{test}}
+
+    <!-- 原文输出 -->
+    <!--如果要渲染test里的值中，其中包含了html标签前面加@，原文输出，才能保证html标签被正常渲染 -->
+    {{@ test}}
+
+    <!-- 条件输出 -->
+    <!-- {{if 条件}}
+    {{else if 条件}}
+    {{/if}} -->
+    <div>
+        {{if flag === 0}}
+        flag的值是0
+        {{else if flag === 1}}
+        flag的值是1
+        {{/if}}
+    </div>
+
+    <!-- 循环输出 -->
+    <!-- {{each 数组}}
+    {{$index}}{{$value}}
+    {{/each}} -->
+    <ul>
+        {{each hobby}}
+        <li>索引是：{{$index}},循环项是:{{$value}}</li>
+        {{/each}}
+    </ul>
+
+    <h3>{{regTime | dateFormat}}</h3>
+    </script>
+
+
+
+    <script>
+        // 定义处理时间的过滤器
+    template.defaults.imports.dateFormat = function(date){
+        let y = date.getFullYear()
+        let m = date.getMonth() + 1
+        let d = date.getDate()
+
+        return y+'-'+m+'-'+d
+    }
+        // 2.定义需要渲染的数据
+        let data = { name: 'cyw', age: 22, test: '<h3>测试原文输出</h3>', flag: 0, hobby: ['吃饭', '睡觉', '敲代码'],regTime:new Date() }
+
+        // 调用template函数 
+        let htmlStr = template('tpl-user', data)   //这里不加#因为这个是模板引擎不是jquery
+        console.log(htmlStr);
+        // 5.渲染html结构
+        $('#containner').html(htmlStr)
+    </script>
+</body>
+
+</html>

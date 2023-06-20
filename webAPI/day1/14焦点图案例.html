@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-box {
+            width: 1000px;
+            height: 550px;
+            margin: 50px auto 0;
+            background: #000;
+            position: relative;
+        }
+
+        .img-box .tip {
+            width: 1000px;
+            height: 52px;
+            line-height: 53px;
+            position: absolute;
+            bottom: 0px;
+            background-color: rgb(0, 0, 0, 0.8);
+            z-index: 10;
+            border-color: rgb(36, 41, 41);
+        }
+
+        .img-box .pic {
+            width: 1000px;
+            height: 550px;
+        }
+
+        h3 {
+            color: rgb(224, 123, 227);
+            margin-top: 2px;
+            margin-left: 20px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-box">
+        <img class="pic" src="../images/lunbo1.png" alt="" title="远近武器结合">
+        <div class="tip">
+            <h3 class="text">远近武器结合</h3>
+        </div>
+    </div>
+
+    <script>
+        // 数据
+        let data = [
+            {
+                imgSrc: '../images/lunbo1.png',
+                title: '远近武器结合'
+            },
+            {
+                imgSrc: '../images/lunbo2.png',
+                title: '无拘战斗革命'
+            },
+            {
+                imgSrc: '../images/lunbo3.png',
+                title: '无限自由飞锁'
+            },
+            {
+                imgSrc: '../images/lunbo4.png',
+                title: '无尘'
+            },
+            {
+                imgSrc: '../images/lunbo5.png',
+                title: '顾清寒'
+            },
+            {
+                imgSrc: '../images/lunbo6.png',
+                title: '宁红夜'
+            },
+        ]
+
+        // 1.获取元素 图片 和 h3
+        let pic = document.querySelector('.pic');
+        let text = document.querySelector('.text');
+        // i 记录图片张数
+        let i = 0;
+        // 2.开始定时器
+        setInterval(function () {
+            i++;
+            // 修改图片src属性
+            pic.src = data[i].imgSrc;
+            pic.title = data[i].title;
+            text.innerHTML = data[i].title;
+            // 无缝衔接
+            // if (i === data.length - 1) {      //5 = data.length - 1
+            //     i = -1;
+            // }
+            i === data.length - 1 ? i = -1 : i;
+        }, 1500)
+    </script>
+</body>
+
+</html>

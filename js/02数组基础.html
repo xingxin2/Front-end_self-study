@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    let arr=[2,4,5,9,3];
+    let sum = 0;
+    let average = 0;
+    for (let i = 0; i < arr.length; i++) {
+        // console.log(arr[i]);
+        // arr[i]就是数组的每一个值 例：2，4，5
+        sum = sum + arr[i];
+    }
+    // document.write(sum);
+    average =  sum / arr.length;
+    document.write(`总分是${sum},平均分是${average}`);
+   </script> 
+</body>
+</html>

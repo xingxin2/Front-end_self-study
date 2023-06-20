@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>点名</button>
+    <script>
+        // 1.获取元素 div button
+        let btn = document.querySelector('button');
+        let box = document.querySelector('div');
+        // 2.随机函数
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        // 声明一个数组
+        let arr = ['关羽', '张飞', '赵云', '马超', '黄忠', '刘备', '孔明', '姜维'];
+        // 3.事件监听
+        btn.addEventListener('click', function () {
+            let random = getRandom(0, arr.length - 1);
+            // console.log(arr[random]);
+            box.innerHTML = arr[random];
+            // 输出数组里的元素  splice(从哪里删，删几个)
+            arr.splice(random,1);
+            // 如果抽完了，禁用按钮
+            if(arr.length === 0 ) {
+                btn.disabled = true;
+                btn.innerHTML = '抽完了';
+            }
+        });
+    </script>
+</body>
+
+</html>

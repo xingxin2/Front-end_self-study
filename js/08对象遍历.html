@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明变量
+        // 对象名 ： '方法'，
+       let obj = {
+        uname : '一个鸭蛋',
+        age : '99999',
+        sex : 'men'
+
+       } 
+        // console.log(obj.uname);         //不能加引号
+        // console.log(obj['uname']);      //必须加引号(2种效果一样)
+    //    遍历
+    // for (let k in 对象){}
+    for (let k in obj){
+        // console.log(k); // k 属性名
+        // console.log(obj.k); obj.k意思是obj里的k属性  (x)
+        // console.log(obj['k']);  属性名不能加''       (x)
+        console.log(obj[k]);
+        // k === 'uname'  === 'age' === 'sex'
+        
+    }
+    </script>
+</body>
+</html>

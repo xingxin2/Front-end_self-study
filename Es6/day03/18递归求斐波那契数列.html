@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 利用递归函数求斐波那契数列：1,1,2,3,5,8，13...第n项是前两项之和
+        let n = prompt('请输入你要输入的数字：');
+        // console.log(n);
+        function fbnq(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }
+            return fbnq(n - 1) + fbnq(n - 2);
+        }
+        console.log(`第${n}个数对应的序列是:${fbnq(n)}`);
+    </script>
+</body>
+
+</html>

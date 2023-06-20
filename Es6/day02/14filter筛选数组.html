@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //filter 筛选数组
+        let arr = [12, 22, 3, 43, 3, 20];
+        let nerArr = arr.filter(function (value, index, array) {
+            // return value >= 20;  //直接return想要筛选的结果  因为filter返回的是一个新数组，所以需要重新接收一下
+            return value % 2 === 0;
+        });
+        console.log(nerArr);
+    </script>
+</body>
+
+</html>

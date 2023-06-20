@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .active {
+            width: 400px;
+            height: 400px;
+            background-color: hotpink;
+            margin-left: 40px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        // 1.获取元素
+        let box = document.querySelector('div');
+        // 2.设置样式
+        // 适用于要修改的样式少的情况
+        // box.style.width = '400px';
+        // box.style.height = '400px';
+        // box.style.backgroundColor = 'hotpink';
+        // box.style.marginLeft = '40px';
+        // box.style.marginTop = '40px';
+        box.className = 'one active';
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 为了改变函数内this指向，JS提供了三种方法call()、apply()、bind().
+
+        // 2.apply(obj,[])  obj是要传递的对象，传递的参数必须是个数组  
+        let o = {
+            name: 'xin'
+        };
+        function f2(arr) {
+            console.log(this);
+            console.log(arr); //打印出来的是个字符串不是数组
+
+        };
+        // f2.apply(o,1);  //指向o  后面参数要跟数组 不然会报错
+        f2.apply(o,['nice']);  //后面参数要跟数组
+        // 1apply方法的作用第一个是调用函数，第二个是改变函数内this指向
+        // 2但是传递的参数必须是数组（伪数组）
+        // 3apply的主要应用是 比如用apply借助数学内置对象求最值
+        // Math.max();
+        let arr = [12,22,2,21,33,9];  //以前要用遍历数组的方法求最值
+        let max = Math.max.apply(Math, arr);
+        let min = Math.min.apply(Math, arr);
+        console.log(max,min);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 简单数据类型
+        //存储数据  localStorage.setItem('键','值');
+        localStorage.setItem('uname', '鸭蛋');
+        //获取数据
+        //localStorage.getItem('键')
+        console.log(localStorage.getItem('uname'));
+        //删除数据  localStorage.removeItem('uname');
+
+
+        let obj = {
+            uname: '鸭蛋',
+            age: 20,
+            sex: '男'
+        };
+
+        localStorage.setItem('obj', JSON.stringify(obj));
+        // (1)本地储存只能存储字符串,复杂数据类型一定要转换为json 字符串在进行存储
+        // JSON格式: 属性和值都是双引号,复杂数据类型要用JSON.stringify
+        // let obj = {
+        //     "uname":"鸭蛋",
+        //     "age":"20",
+        //     "sex":"男"
+        // };
+
+        // (2) 取数据 可以使用 JSON.parse()将json字符串转换为对象
+        console.log(obj);
+        console.log(localStorage.getItem(obj));
+        console.log(typeof localStorage.getItem(obj));  //string字符串类型,用不了
+        console.log(JSON.parse(localStorage.getItem(obj)));
+        console.log(typeof JSON.parse(localStorage.getItem(obj))); //object
+
+
+    </script>
+</body>
+
+</html>

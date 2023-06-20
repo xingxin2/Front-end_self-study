@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dianming {
+            border: 1px solid black;
+            width: 700px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+            width: 450px;
+            height: 40px;
+            color: red;
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dianming">
+        <h2>随机点名</h2>
+        <div class="box"><span>名字是：</span>
+            <div class="qs">开始点名</div>
+        </div>
+        <div class="btns">
+            <button class="start">开始</button>
+            <button class="end">结束</button>
+        </div>
+    </div>
+
+    <script>
+        // 数据数组
+        let arr = ['关羽', '张飞', '赵云', '马超', '黄忠', '刘备', '孔明', '姜维'];
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        // 1.获取元素  2个按钮和一个qs  类一定要加.(.start)
+        let start = document.querySelector('.start');
+        let end = document.querySelector('.end');
+        let qs = document.querySelector('.qs');
+        // 2.给开始按钮注册事件
+        // begin random全局变量
+        let begin, random;
+        start.addEventListener('click', function () {
+            // 随机抽取数据 begin要是全局变量
+            begin = setInterval(function () {
+                random = getRandom(0, arr.length - 1);
+                qs.innerHTML = arr[random];
+            }, 50);
+        });
+
+        // 3.给结束按钮注册事件
+        end.addEventListener('click', function () {
+            // 关闭计时器 ，关闭按钮
+            clearInterval(begin);
+            arr.splice(random, 1);
+            if (arr.length === 0) {
+                start.disabled = true;
+                end.disabled = true;
+                qs.innerHTML = '抽完了';
+            }
+        });
+    </script>
+</body>
+
+</html>

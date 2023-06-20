@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //call方法
+        function fn() {
+            console.log('yess');
+            console.log(this);
+        }
+        let o = { name: 'xin' };
+        fn();
+        //call方法1 呼叫调用
+        fn.call();
+        //call方法2 可以改变这个函数的this指向
+        //一开始fn中this指向的window，call可以改变this指向
+        fn.call(o);
+
+        //如果函数有传值 l会和传的值互不干扰
+        function fn1(x, y) {
+            console.log(x + y);
+            console.log(this);
+            // console.log(x + y);
+        }
+        let l = { name: 'xin' };
+        fn1.call(l, 1, 2);
+
+    </script>
+</body>
+
+</html>

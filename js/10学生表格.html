@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <table>
+        <caption>学生列表</caption>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>家乡</th>
+        </tr>
+    </table> -->
+    <script>
+        // 打印头部
+        let students = [
+            { name: '张三', age: '18', gender: '男', hometown: 'USA' },
+            { name: '李四', age: '19', gender: '女', hometown: 'UK' },
+            { name: '王五', age: '17', gender: '男', hometown: 'Japan' },
+            { name: '赵六', age: '20', gender: '女', hometown: 'China' }
+        ]
+        document.write(`
+         <table>
+         <caption>学生列表</caption>
+         <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>家乡</th>
+         </tr>    
+        `)
+        // 中间遍历行数
+        for (let i = 0; i < students.length; i++) {
+            document.write(`
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${students[i].name}</td>
+                    <td>${students[i].age}</td>
+                    <td>${students[i].gender}</td>
+                    <td>${students[i].hometown}</td>
+                </tr> 
+            
+            `)
+        }
+        // 尾部
+        document.write(`
+         </table>
+        `)
+
+    </script>
+</body>
+
+</html>

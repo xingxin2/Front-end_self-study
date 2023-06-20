@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <p class="next">今天是2022年12月6日</p>
+        <p class="tips">现在是18:30:00</p>
+        <p class="title">距离<span class="sdj">2023</span>倒计时</p>
+        <p class="clock">
+            <span id="day">00</span>
+            <i>天</i>
+            <span id="hour">00</span>
+            <i>:</i>
+            <span id="minutes">00</span>
+            <i>:</i>
+            <span id="seconds">00</span>
+        </p>
+        <script>
+            let next = document.querySelector('.next');
+            let hour = document.querySelector('#hour');
+            let minutes = document.querySelector('#minutes');
+            let seconds = document.querySelector('#seconds');
+            let tips = document.querySelector('.tips');
+            times();
+            setInterval(times, 1000);
+            function times() {
+                let date = new Date();
+                // 年月日
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;  //月要+1
+                let day1 = date.getDate();
+                // 时分秒
+                let hour1 = date.getHours();
+                let minutes1 = date.getMinutes();
+                let seconds1 = date.getSeconds();
+
+                // 1.得到现在的时间戳
+                let now = +new Date();
+                // 2.得到指定时间的时间戳
+                let last = +new Date('2023-05-20 00:00:00');
+                // 3.（指定时间时间戳-现在时间戳） /  1000 === 剩余秒数
+                let count = (last - now) / 1000;
+                // console.log(count);
+                // 4.转换为时分秒
+                // h = parseInt(总秒数 / 60 / 60 % 24)
+                // m = parseInt(总秒数 / 60 % 60 )
+                // s = parseInt(总秒数 % 60)
+                let d = parseInt(count / 60 / 60 / 24);
+                d = d < 10 ? '0' + d : d;
+                let h = parseInt(count / 60 / 60 % 24);
+                h = h < 10 ? '0' + h : h;
+                let m = parseInt(count / 60 % 60);
+                m = m < 10 ? '0' + m : m;
+                let s = parseInt(count % 60);
+                s = s < 10 ? '0' + s : s;
+                day.innerHTML = d;
+                hour.innerHTML = h;
+                minutes.innerHTML = m;
+                seconds.innerHTML = s;
+                next.innerHTML = `今天是${year}年${month}月${day1}日`;
+                tips.innerHTML = `现在是${hour1}:${minutes1}:${seconds1}`;
+            }
+        </script>
+    </div>
+</body>
+</html>

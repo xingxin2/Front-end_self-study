@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = `<div>我的名字是{{name}},我今天{{ age }}岁了</div>`;
+        // console.log(str);
+        let pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+        // 第一次匹配
+        let patternResult1 = pattern.exec(str);
+        str = str.replace(patternResult1[0],patternResult1[1]);
+        console.log(str);
+        // 第二次匹配
+        let patternResult2 = pattern.exec(str);
+        str = str.replace(patternResult2[0],patternResult2[1]);
+        console.log(str);
+
+    </script>
+</body>
+</html>

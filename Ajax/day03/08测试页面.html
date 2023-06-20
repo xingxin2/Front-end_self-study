@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/itheima.js"></script>
+</head>
+
+<body>
+    <script>
+        // GET请求
+        // itheima({
+        //     method: 'GET',
+        //     url: 'https://ajax-base-api-t.itheima.net/api/getbooks',
+        //     data: {
+        //         id: 5
+        //     },
+        //     success: function (res) {
+        //         console.log(res);
+        //     }
+        // });
+        // POST请求
+        itheima({
+            method: 'POST',
+            url: 'https://ajax-base-api-t.itheima.net/api/addbook',
+            data: {
+                bookname: '欣欣',
+                author: '小欣',
+                publisher: '小欣出版社'
+            },
+            success: function (res) {
+                console.log(res);
+            }
+        });
+    </script>
+</body>
+
+</html>

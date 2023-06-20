@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 10;
+        let fn = function(){};  //把函数当值使用叫做函数的高阶用法也叫高阶函数
+
+        function fn (){
+            console.log(1);
+        }
+        setInterval(fn,1000);   //fn就是回调函数 把函数当参数传递(回头去调用)
+
+        box.addEventListener('click',fn);  //回调函数fn
+    </script>
+</body>
+</html>

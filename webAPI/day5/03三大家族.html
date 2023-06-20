@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: auto;
+            /* 文字溢出加滚动条 */
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+        aduckegg
+    </div>
+
+    <script>
+
+        let div = document.querySelector('div');
+        // 内容的h w  不带单位
+        console.log(div.scrollHeight);
+        console.log(div.scrollWidth);
+        console.log('-------------------------------------');
+        // 盒子元素的大小 = 盒子本身的宽高 + padding + border  不带单位
+        console.log(div.offsetHeight);
+        console.log(div.offsetWidth);
+        console.log(div.offsetTop);
+        console.log(div.offsetLeft);
+        console.log('-------------------------------------');
+        //client 当前可视区 不包含滚动条 边框等等
+        console.log(div.clientHeight);
+        console.log(div.clientWidth);
+        console.log(div.clientTop);
+        console.log(div.clientLeft);
+    </script>
+</body>
+
+</html>

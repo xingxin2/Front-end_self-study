@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="father1">
+        <div class="father2">
+            <h1 class="son"></h1>
+        </div>
+    </div> -->
+
+    <div class="close">
+        <img src="../images/logo.png" alt="">
+        <i class="close_btn">X</i>
+    </div>
+
+    <script>
+    // let son = document.querySelector('.son');
+    // console.log(son.parentNode.parentNode);   //PannerNode是属性不是方法
+
+    let close_btn = document.querySelector('.close_btn');
+    close_btn.addEventListener('click',function(){
+            // 关闭 图片隐藏
+            this.parentNode.style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>

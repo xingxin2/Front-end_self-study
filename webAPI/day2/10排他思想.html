@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="pink">第1个</button>  <!-- 初始默认 -->
+    <button>第2个</button>
+    <button>第3个</button>
+    <button>第4个</button>
+    <button>第5个</button>
+</body>
+<script>
+    // 1.获取元素
+    let btn = document.querySelectorAll('button');
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener('click', function () {
+            // 去除全部
+            // 干掉全部人包括自己
+            // for (let j = 0; j < btn.length; j++) {               
+            //     btn[j].classList.remove('pink');
+            //     // 或者 btn[j].style.backgroundColor = 'white';
+            // }
+            // // 复活自己
+            // this.classList.add('pink')
+            // // 或者 this.style.backgroundColor = 'pink';
+
+            // 第二张方法  只需找出唯一哪一个pink类，删除 
+            document.querySelector('.pink').classList.remove('pink');
+
+            //我的
+            this.classList.add('pink');
+        });
+    }
+</script>
+
+</html>

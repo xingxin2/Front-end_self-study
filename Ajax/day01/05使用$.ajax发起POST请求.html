@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+<body>
+    <button id="btnPOST">发起POST请求</button>
+
+    <script>
+        $(function(){
+            $('#btnPOST').on('click',function(){
+                $.ajax({
+                    type:'POST',
+                    url:'https://ajax-base-api-t.itheima.net/api/addbook',
+                    data:{
+                        bookname:'一个鸡蛋',
+                        author:'吉祥',
+                        publisher:'吉祥图书出版社'
+                    },
+                    success:function(res){
+                        console.log(res);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

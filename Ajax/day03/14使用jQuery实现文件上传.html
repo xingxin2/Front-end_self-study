@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <input type="file" id="file1">
+    <button id="btnUpload">上传文件</button>
+
+    <br />
+    <img src="./images/loading.gif" alt="" style="display: none;" id="loading" />
+
+    <script>
+        $(function () {
+            //监听到Ajax请求被发起了
+            $(document).ajaxStart(function () {
+                $('#loading').show()
+            });
+
+            // 监听到Ajax完成后将loading图隐藏
+            $(document).ajaxStop(function () {
+                $('#loading').hide()
+            });
+            // 验证是否选择文件AF
+            $('#btnUpload').on('click', function () {
+                let files = $('#file1')[0].files
+                if (files.length <= 0) {
+                    return alert('请选择文件后再上传！');
+                }
+                // console.log('用户上传了文件');
+                let fd = new FormData();
+                fd.append('avatar', files[0]);
+
+                // 发起jQuery的Ajax请求  只能调用$.ajax，不能用$.get或$.post 
+                // method一定是POST  processData和contentType一定要是false，固定写法
+                $.ajax({
+                    method: 'POST',
+                    url: 'https://ajax-base-api-t.itheima.net/api/upload/avatar',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>

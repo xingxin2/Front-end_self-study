@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+    <ul class="nav">
+        <li>我的首页</li>
+        <li>产品介绍</li>
+        <li>联系方式</li>
+    </ul>
+    <!-- <div>一个盒子</div>
+    <div>一个盒子</div>
+    <div class="three">第三个盒子</div> -->
+    <script>
+        // 获取一个元素document.querySelector('css选择器')（可操作）
+        // 获取元素
+        // let div = document.querySelector('div');
+        // console.log(div);
+        // let div = document.querySelector('.three'); // css选择器一定要加引号
+        // console.log(div);
+        // 获取多个个元素document.querySelectorAll('css选择器')（用遍历，不可操作）
+        //用querySelectorAll得到的都是伪数组不管里面几个元素
+       let lis = document.querySelectorAll('.nav li');
+       for(let i = 0;i < lis.length;i++){
+        console.log(lis[i]);
+       }
+    </script>
+</body>
+
+</html>
